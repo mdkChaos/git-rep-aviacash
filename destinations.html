@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html ng-app="searchModule">
+	<head>
+		<title>Найкращі авіакаси</title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<!--<link rel="stylesheet" type="text/css" href="css/normalize.css">-->
+		<!--[if IE]>
+  			<link rel="stylesheet" type="text/css" href="css/ie.css" />
+		<![endif]-->
+        <script src="scripts/angular.min.js"></script>
+        <script src="scripts/controllers/search.js"></script>
+	</head>
+	<body>
+		<!--HEADER START-->
+		<header>
+			<div class="header">
+				<div class="container">
+					<h1>АВІАКАСА</h1>
+				</div>
+			</div>
+		</header>
+		<!--HEADER END-->
+		<!--NAVIGATION START-->
+		<nav>
+			<div class="page-navigation">
+				<div class="container">
+					<ul>
+						<li>
+							<a href="index.html">Головна</a>
+						</li>
+						<li>
+							<a href="destinations.html" class="active">Напрямки</a>
+						</li>
+						<li>
+							<a href="maps.html">Карта сайту</a>
+						</li>
+						<li>
+							<a href="contacts.html">Контакти</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<!--NAVIGATION END-->
+		<!--MAIN SECTION START-->
+		<main>
+			<div class="content">
+				<div class="container"  ng-controller="searchCtrl">
+					<table class="table">
+						<tr>
+							<th>Звідки</th>
+							<th>Куди</th>
+							<th>Дата та час вильоту</th>
+							<th>В дорозі</th>
+							<th>Дата та час прибуття</th>
+							<th>Маршрут</th>
+							<th>Авіаперевізник</th>
+							<th>Ціна</th>
+						</tr>
+						<tr ng-repeat="direction in directions">
+							<td>{{direction.whence}}</td>
+							<td>{{direction.where}}</td>
+							<td>{{direction.datestart}}</td>
+							<td>{{direction.timefly}}</td>
+							<td>{{direction.datefinish}}</td>
+							<td>{{direction.route}}</td>
+							<td>{{direction.carrier}}</td>
+							<td>{{direction.price | currency:"&#8372"}} грн;</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+			<div class="footer-push"></div>
+		</main>
+		<!--MAIN SECTION END-->
+		<!--FOOTER START-->
+		<footer>
+			<div class="footer">
+				<div class="container">
+					<p>Copyright &copy; Poludnev Andrey 2016</p>
+				</div>
+			</div>
+		</footer>
+		<!--FOOTER END-->
+	</body>
+</html>
